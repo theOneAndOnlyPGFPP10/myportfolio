@@ -1,0 +1,75 @@
+/* LOGO */
+.logo_container {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  font-family: var(--font-triangulate);
+  /* width: 21rem; */
+}
+.logo_counter {
+  width: fit-content;
+  overflow: hidden;
+  /* background-color: blue; */
+  padding-right: 5;
+  transition: max-width 0.6s ease 0.5s;
+}
+.logo {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  line-height: 1;
+  width: fit-content;
+}
+
+@keyframes logo-animation {
+  0% {
+    translate: 10vw 10vw;
+    font-size: 6rem;
+  }
+  100% {
+    translate: 0 0;
+    font-size: 4rem;
+  }
+}
+
+.bigger_letters_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+
+.bigger_letter {
+  font-size: 7rem;
+  line-height: 7rem;
+}
+
+/* END LOGO */
+
+/* 📱 MOBILE */
+@media (max-width: 767px) {
+  .logo_container {
+    width: 100%;
+    align-items: center;
+  }
+  .logo_counter {
+    display: none;
+  }
+  /* .bigger_letters_container{
+        display: none;
+    } */
+}
+
+/* 📲 TABLET */
+@media (max-width: 1023px) {
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+}

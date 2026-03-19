@@ -1,0 +1,84 @@
+.textBlock {
+  font-size: var(--h1);
+  line-height: var(--h1);
+  word-break: break-word;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 2s ease-in-out;
+}
+.word:hover {
+  transform: translateY(-20px);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ustaw custom property na carousel — clamp w jednym miejscu */
+.carousel {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: var(--h1);
+  height: var(--h1);
+  overflow: hidden;
+  vertical-align: middle;
+  position: relative;
+  top: -0.1em;
+}
+
+.carouselInner {
+  display: flex;
+  flex-direction: column;
+  animation: spinDown 10s ease-in-out infinite;
+}
+
+/* Nieparzyste — animacja odwrotna (dół → góra → dół) */
+.carouselInnerOdd {
+  animation: spinUp 10s ease-in-out infinite;
+}
+
+/* Parzyste: startuje na cyfrze (Y=0), jedzie do litery (Y=-h) */
+@keyframes spinDown {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--h1)));
+  }
+  90% {
+    transform: translateY(calc(-1 * var(--h1)));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Nieparzyste: startuje na literze (Y=0), jedzie do cyfry (Y=-h) */
+@keyframes spinUp {
+  0% {
+    transform: translateY(calc(-1 * var(--h1)));
+  }
+  40% {
+    transform: translateY(calc(-1 * var(--h1)));
+  }
+  50% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-1 * var(--h1)));
+  }
+}
+
+.carouselInner span {
+  height: var(--h1);
+  line-height: var(--h1);
+  display: block;
+  text-align: center;
+  min-width: 0.85ch;
+}

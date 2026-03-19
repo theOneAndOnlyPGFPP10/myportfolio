@@ -1,26 +1,63 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* 
+SCREENS breakpoints
+sm  640px
+md  768px
+lg  1024px
+xl  1280px
+2xl 1536px 
+*/
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #c9c9be;
+  --background: #272325;
+  --light-color: white;
+  --navy: #0c1440;
+  --h1: clamp(40px, 7vw, 130px);
+  --h2: clamp(30px, 5.25vw, 97px);
 }
+/* --foregrounf: #C9C9BE; light grayish beige */
+/* --background: #F9F6ED; off-white*/
+/* --background: #F1CCD0; powder pink */
+/* --background: #d50000; red*/
+/* --background: #81d9c5; turquois*/
+/* #0099ff1a deep black*/
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-panchang: var(--font-panchang);
+  --font-satoshi: var(--font-satoshi);
+  --font-pump-triline: var(--font-pump-triline);
+  --font-triangulate: var(--font-triangulate);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #272325;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inconsolata);
+  font-size: clamp(14px, 2vw, 20px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: var(--h1);
+  line-height: 0.9;
+}
+h2 {
+  font-size: var(--h2);
 }

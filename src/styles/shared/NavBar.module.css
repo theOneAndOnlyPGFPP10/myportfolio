@@ -1,0 +1,50 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 99vw;
+  z-index: 999;
+  mix-blend-mode: difference;
+}
+
+/* SECTIONS */
+.navbar__section_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  overflow: hidden;
+}
+
+/* .navbar__section_list > *{
+  transform: translateY(-100px);
+} */
+
+.special {
+  background-color: var(--foreground);
+  color: var(--background);
+  padding: 0 1rem;
+}
+/* END SECTIONS */
+
+/* 📱 TELEFON */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar__section_list {
+    padding-top: 15px;
+  }
+}
+
+/* 📲 TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+}

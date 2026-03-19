@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* scrollowalna przestrzeń dla paralaksy */
+}
+
+.scene {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.svg {
+  width: 100vw;
+  height: 80vh;
+  max-height: 90vh;
+}
+
+.layer {
+  will-change: transform;
+}
