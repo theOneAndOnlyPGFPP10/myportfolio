@@ -1,11 +1,9 @@
 'use client';
-import React from 'react';
 import styles from '@/styles/pages/home/HomeHero3.module.css';
 import { ScrambleText } from '@/components/shared/animations/ScrambleText';
 import DescrambleText from '@/components/shared/animations/DescrambleText';
 import { env } from '@/lib/env';
 import { usePagePhase } from '@/features/shared/usePagePhase';
-import MyScrambleText from '@/components/shared/animations/MyScrambleText';
 
 function HomeHero3() {
   const { has } = usePagePhase();
@@ -35,7 +33,6 @@ function HomeHero3() {
       </div>
       <div style={{}} className={`${styles.bottom__edge}`}>
         <ScrambleText text={'[SCROLL TO EXPLORE]'} />
-        <MyScrambleText text={'[SCROLL TO EXPLORE]'} />
       </div>
     </div>
   );

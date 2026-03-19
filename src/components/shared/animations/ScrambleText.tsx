@@ -74,7 +74,7 @@ export function ScrambleText({ text, mounting = true }: ScrambleTextProps) {
   }, [has('has-completed')]);
 
   return (
-    <span onMouseEnter={startScramble}>
+    <span onMouseEnter={()=>startScramble()}>
       {chars.map(({ char, scrambling }, i) => (
         <span
           key={i}

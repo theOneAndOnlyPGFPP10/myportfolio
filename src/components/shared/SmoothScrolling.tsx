@@ -8,7 +8,6 @@ export default function SmoothScroll() {
     const lenis = new Lenis({
       lerp: 0.05,
       smoothWheel: true,
-      smoothTouch: false,
       autoRaf: true,
     });
 
