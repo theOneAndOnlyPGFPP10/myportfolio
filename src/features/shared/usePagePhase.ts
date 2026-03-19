@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 
 export function usePagePhase() {
-  const [classes, setClasses] = useState<Set<string>>(new Set());
+  const [classes, setClasses] = useState<Set<string>>(
+    () => new Set(typeof document === 'undefined' ? [] : document.body.classList)
+  );
 
   useEffect(() => {
-    setClasses(new Set(document.body.classList));
-
     const observer = new MutationObserver(() => {
       setClasses(new Set(document.body.classList));
     });

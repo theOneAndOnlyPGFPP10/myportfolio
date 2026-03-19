@@ -12,6 +12,9 @@ export default function GlobalError({
     <html>
       <body>
         <h2>Something went wrong!</h2>
+        {process.env.NODE_ENV === 'development' ? (
+          <pre style={{ whiteSpace: 'pre-wrap' }}>{error.message}</pre>
+        ) : null}
         <button onClick={() => reset()}>Try again</button>
       </body>
     </html>
