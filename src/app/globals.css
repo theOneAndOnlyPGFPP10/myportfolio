@@ -16,15 +16,6 @@ xl  1280px
   --navy: #0c1440;
   --h1: clamp(40px, 7vw, 130px);
   --h2: clamp(30px, 5.25vw, 97px);
-}
-/* --foregrounf: #C9C9BE; light grayish beige */
-/* --background: #F9F6ED; off-white*/
-/* --background: #F1CCD0; powder pink */
-/* --background: #d50000; red*/
-/* --background: #81d9c5; turquois*/
-/* #0099ff1a deep black*/
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -35,7 +26,12 @@ xl  1280px
   --font-pump-triline: var(--font-pump-triline);
   --font-triangulate: var(--font-triangulate);
 }
-
+/* --foregrounf: #C9C9BE; light grayish beige */
+/* --background: #F9F6ED; off-white*/
+/* --background: #F1CCD0; powder pink */
+/* --background: #d50000; red*/
+/* --background: #81d9c5; turquois*/
+/* #0099ff1a deep black*/
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #272325;
