@@ -1,0 +1,29 @@
+.theme_modes {
+  display: inline-block;
+  cursor: pointer;
+  perspective: 600px;
+  margin: 10px;
+}
+
+.inner {
+  display: inline-flex;
+  gap: 8px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  transform-origin: center center;
+}
+
+/* separator jako oś */
+.separator {
+  display: inline-block;
+}
+
+/* stan dark */
+.dark .inner {
+  transform: rotateY(180deg);
+}
+
+/* stan light (obrót wokół środka czyli "|") */
+.light .inner {
+  transform: rotateY(0deg);
+}

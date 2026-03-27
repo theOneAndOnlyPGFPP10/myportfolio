@@ -1,0 +1,33 @@
+.incoming {
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+  animation: incomingBlink 1.4s ease-in-out infinite;
+  opacity: 0.55;
+}
+
+@keyframes incomingBlink {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.authors_message {
+  width: clamp(10px, 80%, 1080px);
+  margin-bottom: clamp(1px, 10vh, 300px);
+  display: flex;
+  align-items: center;
+  gap: clamp(1px, 1.5vw, 400px);
+}
+
+.authors_message:nth-child(2n + 1) {
+  flex-direction: row-reverse;
+}
+
+.authors_text:nth-child(2n + 1) {
+  text-align: right;
+}

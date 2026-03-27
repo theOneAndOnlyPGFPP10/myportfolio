@@ -15,8 +15,8 @@ const envSchema = z.object({
 
   //   NODE_ENV: z.enum(['development', 'production', 'test'])
   //     .default('development'),
-  AUTHORS_NAME: z.string().min(1).default('Johny Polomski'),
-  PROJECTS_FULL_NAME: z.string().min(1).default('Hermes AI Initiative'),
+  AUTHORS_NAME: z.string().min(1).default('Johny'),
+  AUTHORS_FULL_NAME: z.string().min(1).default('Paweł Polomski'),
   HERO_MOTTO: z
     .string()
     .min(1)

@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from '@/styles/shared/Logo.module.css';
 import { usePagePhase } from '@/features/shared/usePagePhase';
-import { div } from 'motion/react-client';
+
+const MIN_DURATION = 1000;
 
 function Logo() {
   const { has } = usePagePhase();
@@ -15,8 +16,6 @@ function Logo() {
   const finished = useRef(false);
   const revealTriggered = useRef(false);
   const animateRef = useRef<((time: number) => void) | null>(null);
-
-  const MIN_DURATION = 1000;
 
   useEffect(() => {
     animateRef.current = (time: number) => {
@@ -76,7 +75,7 @@ function Logo() {
           <p
             style={{
               transform: showLogoRest ? undefined : 'rotate(-180deg)',
-              fontSize: showLogoRest ? '7rem' : '4rem',
+              fontSize: showLogoRest ? 'var(--bigger-letter)' : 'calc(var(--bigger-letter) * 80%)',
             }}
             className={`${styles.bigger_letter}`}
           >
@@ -86,7 +85,7 @@ function Logo() {
             style={{
               display: showLogoRest ? 'none' : undefined,
               transition: 'display 0.5s',
-              fontSize: showLogoRest ? '7rem' : '4rem',
+              fontSize: showLogoRest ? 'var(--bigger-letter)' : 'calc(var(--bigger-letter) * 80%)',
             }}
             className={styles.bigger_letter}
           >

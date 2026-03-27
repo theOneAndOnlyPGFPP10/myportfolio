@@ -1,0 +1,13 @@
+.word {
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+  transition:
+    transform 0.2s,
+    background 0.2s ease,
+    color 0.08s ease;
+  line-height: 1;
+  /* mix-blend-mode: difference; */
+}

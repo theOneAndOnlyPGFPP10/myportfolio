@@ -3,7 +3,6 @@ import { inter, panchang, satoshi, pump_triline, inconsolata, triangulate } from
 import '@/app/globals.css';
 import { SmoothScrolling, NavBar, Footer } from '@/components/shared';
 import { PhaseOrchestrator } from '@/components/shared/PhaseOrchestrator';
-import { Video } from '@/components/shared/Video';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,37 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        style={{ transition: 'color 0.5s ease, background-color 0.5s ease' }}
         className={`${inter.variable} ${panchang.variable} ${satoshi.variable} 
       ${pump_triline.variable} ${pump_triline.variable} ${panchang.variable} 
-      ${satoshi.variable} ${pump_triline.variable} ${inconsolata.variable} ${triangulate.variable}`}
+      ${satoshi.variable} ${pump_triline.variable} ${inconsolata.variable} ${triangulate.variable} light`}
       >
         <SmoothScrolling />
         <PhaseOrchestrator />
         <NavBar />
         {children}
-        <Video
-          playbackRate={0.5}
-          videoProps={{
-            autoPlay: true,
-            loop: true,
-            muted: true,
-            playsInline: true,
-            style: {
-              position: 'fixed', // lub "absolute"
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.04,
-              zIndex: -1,
-            },
-          }}
-          sourceProps={{
-            src: '/video/tv_noise.mp4',
-            type: 'video/mp4',
-          }}
-        />
         <Footer />
       </body>
     </html>

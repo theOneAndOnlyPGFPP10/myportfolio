@@ -20,7 +20,7 @@
 /* ── Card wrapper — absolute, left set per-card via inline style ── */
 .card_wrapper {
   position: absolute;
-  bottom: 0;                /* all cards sit on the same baseline */
+  bottom: 0; /* all cards sit on the same baseline */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -40,7 +40,10 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.09);
   outline: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
-  transition: box-shadow 0.25s ease, outline-color 0.25s ease, transform 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    outline-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .card:hover {
@@ -62,12 +65,7 @@
 .card_shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.09) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.09) 50%, transparent 70%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease infinite;
   z-index: 2;
@@ -75,8 +73,12 @@
 }
 
 @keyframes shimmer {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 /* ── Actual image ─────────────────────────────────────────── */
@@ -95,12 +97,7 @@
 .card_gloss {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.02) 45%,
-    transparent 60%
-  );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 60%);
   pointer-events: none;
   z-index: 3;
 }

@@ -1,6 +1,11 @@
 'use client';
-import React from 'react';
+
 import styles from '@/styles/shared/DescrambleText.module.css';
+
+// TYPES
+type DescrambleTextProps = {
+  text: string;
+};
 
 // patterns
 // 1. SEARCH EVERY WHITE SPACE
@@ -8,10 +13,6 @@ const PATTERN1 = /(\s+)/;
 // 2. IS IT A TOKEN WITH WHITE SPACE?
 const PATTERN2 = /^\s+$/;
 
-// TYPES
-type DescrambleTextProps = {
-  text: string;
-};
 // const
 const LEET_MAP: Record<string, string> = {
   // Litery → cyfry (klasyczny leet)
@@ -54,7 +55,7 @@ function DescrambleCarousel({ char, isOdd }: { char: string; isOdd: boolean }) {
 
 function DescrambleWord({ word, index }: { word: string; index: number }) {
   return (
-    <span style={{ whiteSpace: 'nowrap' }} className={styles.word}>
+    <span className={styles.word}>
       {[...word].map((char, j) => {
         const charNumber = index + 1 + j;
         const isLeetChar = LEET_MAP[char.toLowerCase()];

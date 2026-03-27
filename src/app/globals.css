@@ -10,14 +10,29 @@ xl  1280px
 */
 
 :root {
-  --foreground: #c9c9be;
-  --background: #272325;
+  /* --color-first: #c9c9be; */
+  --color-first: #e2e2e2;
+  /* --color-second: #272325; */
+  --color-second: #000000;
+  /* --color-second: #090015; */
+  --color-third: #e2ea06;
+  /* --color-fourth: #4e64d2; */
+  --color-fourth: #8893c9;
+  --color-fifth: #00ffa6;
   --light-color: white;
   --navy: #0c1440;
+  /*
+   * Skala nagłówków (h1 → h6): każdy poziom ×0.75 względem poprzedniego
+   * (min px, vw, max px — ten sam układ co --h1 / --h2).
+   * Stosunek h1:h2 = 4/3 (40:30, 7:5.25vw, 130:97).
+   * --h6: min 12px zamiast ~9.5px (czytelność; nie poniżej sensownego tekstu).
+   */
   --h1: clamp(40px, 7vw, 130px);
   --h2: clamp(30px, 5.25vw, 97px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --h3: clamp(22.5px, 3.9375vw, 72.75px);
+  --h4: clamp(16.875px, 2.953125vw, 54.5625px);
+  --h5: clamp(12.65625px, 2.21484375vw, 40.921875px);
+  --h6: clamp(12px, 1.661vw, 30.69px);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter);
@@ -25,35 +40,85 @@ xl  1280px
   --font-satoshi: var(--font-satoshi);
   --font-pump-triline: var(--font-pump-triline);
   --font-triangulate: var(--font-triangulate);
+
+  /* LOGO */
+  --bigger-letter: clamp(40px, 6vw, 120px);
+  /* END LOGO */
 }
-/* --foregrounf: #C9C9BE; light grayish beige */
-/* --background: #F9F6ED; off-white*/
-/* --background: #F1CCD0; powder pink */
-/* --background: #d50000; red*/
-/* --background: #81d9c5; turquois*/
+/* #C9C9BE; light grayish beige */
+/* #F9F6ED; off-white*/
+/* #F1CCD0; powder pink */
+/* #d50000; red*/
+/* #81d9c5; turquois*/
 /* #0099ff1a deep black*/
 /* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #272325;
-    --foreground: #ededed;
+    --background: #c9c9be;;
+    --foreground: #272325;
   }
 } */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-inconsolata);
   font-size: clamp(14px, 2vw, 20px);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-color: var(--color-first); */
+}
+
+/* Hide main scrollbar, keep scroll behavior */
+html,
+body {
+  -ms-overflow-style: none; /* IE and old Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body.dark {
+  --background: var(--color-second);
+  --foreground: var(--color-first);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body.light {
+  --background: var(--color-first);
+  --foreground: var(--color-second);
+  background: var(--background);
+  color: var(--foreground);
 }
 
 h1 {
   font-size: var(--h1);
-  line-height: 0.9;
 }
 h2 {
   font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+h4 {
+  font-size: var(--h4);
+  line-height: 1.5;
+}
+h5 {
+  font-size: var(--h5);
+}
+h6 {
+  font-size: var(--h6);
+}
+
+h1,
+h2,
+h3,
+h3,
+h5,
+h5 {
+  line-height: 0.9;
 }
