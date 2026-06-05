@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import styles from '../../styles/shared/NavBar.module.css';
 import Link from 'next/link';
 import Logo from './Logo';
@@ -24,7 +23,7 @@ function NavBar() {
             return (
               <Link
                 key={index}
-                href={`#${section}`}
+                href={`/${section}`}
                 onMouseEnter={() => console.log('hover link')}
                 style={{
                   transform: has('has-landed') ? `translateY(0px)` : `translateY(100px)`,

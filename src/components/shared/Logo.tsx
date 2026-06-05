@@ -48,7 +48,7 @@ function Logo() {
     };
 
     requestAnimationFrame(animateRef.current);
-  }, []);
+  });
 
   return (
     <div id="logo" className={styles.logo_container}>

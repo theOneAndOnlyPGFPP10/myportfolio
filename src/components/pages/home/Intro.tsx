@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from '@/styles/pages/home/Intro.module.css';
-import { AuthorsMessageProps, authorsMessages } from '@/lib/services';
+import { AuthorsMessageProps, authorsMessages } from '@/utils/lib/services';
 import { ScrambleText } from '@/components/shared/animations/ScrambleText';
 import { useInView } from 'motion/react';
 import RegularCircle from '@/components/shared/RegularCircle';
@@ -39,6 +39,8 @@ function AuthorMessage({ message, isMounted }: { message: AuthorsMessageProps; i
   );
 }
 
+const messagesCount = authorsMessages.length;
+
 export default function Intro() {
   const [messages, setMessages] = useState<MessageState[]>(
     authorsMessages.map((authorMessage) => ({ authorMessage, isMounted: false }))
@@ -50,18 +52,18 @@ export default function Intro() {
   useEffect(() => {
     if (!isInView) return;
 
-    const timeouts = messages.map((_, index) =>
+    const timeouts = Array.from({ length: messagesCount }, (_, index) =>
       setTimeout(
         () => {
-          setMessages((prev) => prev.map((msg, i) => (i === index ? { ...msg, isMounted: true } : msg)));
+          setMessages((prev) =>
+            prev.map((msg, i) => (i === index ? { ...msg, isMounted: true } : msg))
+          );
         },
         (0.5 + index) * 7000
       )
     );
 
-    return () => {
-      timeouts.forEach(clearTimeout);
-    };
+    return () => timeouts.forEach(clearTimeout);
   }, [isInView]);
 
   const firstMounted = messages[0]?.isMounted ?? false;

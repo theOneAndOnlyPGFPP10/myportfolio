@@ -12,6 +12,9 @@ function ToggleTheme() {
     document.body.classList.toggle('light', !isDark);
   }, [isDark]);
 
+  useEffect(() => {
+    // if(window.)
+  }, []);
   return (
     <div
       className={`${styles.theme_modes} ${isDark ? styles.dark : styles.light}`}

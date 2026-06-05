@@ -43,6 +43,8 @@ export function ScrambleText({ text, mounting = true, scrambleDuration = 100 }: 
   const charsStateRef = useRef(chars);
   const baselineCharsRef = useRef<{ char: string; scrambling: boolean }[]>([]);
   const startTsRef = useRef<number>(0);
+  /** When true, startScramble will reset chars to spaces before animating. */
+  const resetToSpacesRef = useRef(false);
 
   useEffect(() => {
     charsStateRef.current = chars;
@@ -58,6 +60,15 @@ export function ScrambleText({ text, mounting = true, scrambleDuration = 100 }: 
 
     if (textChars.length === 0) {
       return;
+    }
+
+    // If a mount reset was requested, apply it synchronously before the first
+    // tick so the animation always starts from blank spaces.
+    if (resetToSpacesRef.current) {
+      resetToSpacesRef.current = false;
+      const spaces = textChars.map(() => ({ char: '\u00A0', scrambling: false }));
+      charsStateRef.current = spaces;
+      setChars(spaces);
     }
 
     isAnimating.current = true;
@@ -118,25 +129,20 @@ export function ScrambleText({ text, mounting = true, scrambleDuration = 100 }: 
     if (scrambleIntervalRef.current) clearInterval(scrambleIntervalRef.current);
     tick();
     scrambleIntervalRef.current = setInterval(tick, INTERVAL);
-  }, [textChars]);
+  }, [textChars, scrambleDuration, INTERVAL, clearAllTimers]);
 
   useEffect(() => {
     let mountTimeout: ReturnType<typeof setTimeout> | undefined;
     if (mounting && hasCompleted) {
-      // When mounting flips to true, force starting frame from spaces.
-      setChars(
-        textChars.map(() => ({
-          char: '\u00A0',
-          scrambling: false,
-        }))
-      );
-      // Start soon after mounting to avoid long "idle" waiting.
+      // Signal that the next startScramble call should begin from blank spaces.
+      // Using a ref avoids a synchronous setState inside the effect body.
+      resetToSpacesRef.current = true;
       mountTimeout = setTimeout(() => startScramble(), 600);
     }
     return () => {
       if (mountTimeout) clearTimeout(mountTimeout);
     };
-  }, [hasCompleted, mounting, startScramble, textChars]);
+  }, [hasCompleted, mounting, startScramble]);
 
   useEffect(() => {
     return () => {

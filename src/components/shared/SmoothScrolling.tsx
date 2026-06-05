@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { setLenis } from '@/lib/lenis';
+import { setLenis } from '@/utils/lib/lenis';
 
 export default function SmoothScroll() {
   useEffect(() => {

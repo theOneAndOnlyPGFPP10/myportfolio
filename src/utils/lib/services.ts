@@ -1,5 +1,4 @@
-import { CodeXml, BrainCircuit, Wallpaper, LucideIcon } from 'lucide-react';
-import React from 'react';
+import { CodeXml, BrainCircuit, Wallpaper, LucideIcon, Cpu } from 'lucide-react';
 import { env } from './env';
 import { StaticImageData } from 'next/image';
 
@@ -38,29 +37,17 @@ export const authorsMessages: AuthorsMessageProps[] = [
   },
 ];
 
-export type ServiceCategory = 'design' | 'web-development' | 'ai-development';
+export type ServiceCategory = 'design' | 'web' | 'ai' | 'IoT';
 
 export type ServiceGroup = {
   serviceCategory: ServiceCategory;
   services: readonly string[];
+  description?: string;
   color: string;
-  icon: LucideIcon | React.ComponentType<any>;
+  icon: LucideIcon;
 };
 
 export const services: readonly ServiceGroup[] = [
-  {
-    serviceCategory: 'web-development',
-    services: [
-      'full-stack-development',
-      'custom-wordpress-website',
-      // 'custom-shopify-e-commerce',
-      'creative-web-development',
-      'gamification',
-      'seo',
-    ],
-    color: 'var(--color-fourth)',
-    icon: CodeXml,
-  },
   {
     serviceCategory: 'design',
     services: [
@@ -71,11 +58,26 @@ export const services: readonly ServiceGroup[] = [
       'content-strategy',
       'usability-testing',
     ],
+    description: 'Creating cohesive interfaces, animations and visual strategy.',
     color: 'var(--color-third)',
     icon: Wallpaper,
   },
   {
-    serviceCategory: 'ai-development',
+    serviceCategory: 'web',
+    services: [
+      'full-stack-development',
+      'custom-wordpress-website',
+      // 'custom-shopify-e-commerce',
+      'creative-web-development',
+      'gamification',
+      'seo',
+    ],
+    description: 'Building modern web applications from frontend to backend.',
+    color: 'var(--color-fourth)',
+    icon: CodeXml,
+  },
+  {
+    serviceCategory: 'ai',
     services: [
       'ai-chatbot-development',
       'llm-integration',
@@ -84,7 +86,15 @@ export const services: readonly ServiceGroup[] = [
       'ai-automation',
       'natural-language-processing',
     ],
-    color: 'var(--color-fifth)',
+    description: 'Integrating language models and automating processes with AI.',
+    color: 'var(--color-sixth)',
     icon: BrainCircuit,
+  },
+  {
+    serviceCategory: 'IoT',
+    services: ['smart-home-systems', 'iot-device-firmware', 'rtos-development', 'sensor-integration', 'embedded-linux'],
+    description: 'Programming microcontrollers, real-time systems and IoT devices.',
+    color: 'var(--color-fifth)',
+    icon: Cpu,
   },
 ];

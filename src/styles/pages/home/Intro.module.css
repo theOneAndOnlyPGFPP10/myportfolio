@@ -17,7 +17,7 @@
 }
 
 .authors_message {
-  width: clamp(10px, 80%, 1080px);
+  width: clamp(10px, 100%, 1200px);
   margin-bottom: clamp(1px, 10vh, 300px);
   display: flex;
   align-items: center;
